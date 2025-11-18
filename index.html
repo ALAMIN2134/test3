@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Attendance System - Dashboard</title>
+
+  <!-- Tailwind CDN (for dev/demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 flex items-center">
+          <span class="text-white text-xl font-extrabold tracking-wider rounded-md p-1">Smart Attendance System</span>
+        </div>
+
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Dashboard</a>
+            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Reports</a>
+            <a href="mark-attendance.html" class="text-white bg-indigo-500/80 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-400 transition duration-200 shadow-md">Mark Attendance</a>
+            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Student List</a>
+          </div>
+        </div>
+
+        <div class="-mr-2 flex md:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none">
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="text-white hover:bg-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+        <a href="#" class="text-white hover:bg-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+        <a href="mark-attendance.html" class="text-white bg-indigo-500/80 hover:bg-indigo-400 block px-3 py-2 rounded-md text-base font-medium">Mark Attendance</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="p-4 md:p-8 flex flex-col items-center">
+    <div class="w-full max-w-4xl">
+
+      <!-- Current Date & Time Card -->
+      <div id="time-date-card" class="card-base time-card-base mt-8">
+        <div class="flex items-center mb-6">
+          <i data-lucide="clock" class="custom-violet w-6 h-6 mr-2"></i>
+          <h2 class="text-lg font-semibold custom-violet">Current Date & Time</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4">
+          <div class="inner-card-bg p-4 md:p-6 rounded-xl text-center card-shadow-soft">
+            <p class="text-sm font-bold custom-violet opacity-80 mb-2">Date</p>
+            <p id="current-date" class="text-xl md:text-2xl font-bold custom-dynamic-text">Loading...</p>
+          </div>
+          <div class="inner-card-bg p-4 md:p-6 rounded-xl text-center card-shadow-soft">
+            <p class="text-sm font-bold custom-violet opacity-80 mb-2">Day</p>
+            <p id="current-day" class="text-xl md:text-2xl font-bold custom-dynamic-text">Loading...</p>
+          </div>
+          <div class="inner-card-bg p-4 md:p-6 rounded-xl text-center card-shadow-soft">
+            <p class="text-sm font-bold custom-violet opacity-80 mb-2">Time</p>
+            <p id="current-time" class="text-xl md:text-2xl font-bold custom-dynamic-text">Loading...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Class Session Card -->
+      <div id="class-session-card" class="card-base class-card-base mt-8">
+        <div class="flex items-center mb-6">
+          <i data-lucide="calendar-check" class="class-title-color w-6 h-6 mr-2"></i>
+          <h2 class="text-lg font-semibold class-title-color">Current Class Session</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-700 mb-6">
+          <div class="flex flex-col">
+            <p class="text-xs font-semibold uppercase text-gray-500 mb-1">Subject</p>
+            <p id="class-subject" class="font-bold text-gray-800">CSE210 (Data Structure)</p>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-xs font-semibold uppercase text-gray-500 mb-1">Teacher</p>
+            <p id="class-teacher" class="font-bold text-gray-800">Ms. Rahman</p>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-xs font-semibold uppercase text-gray-500 mb-1">Time</p>
+            <p id="class-time-range" class="font-bold text-gray-800">2:00 PM - 3:30 PM</p>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-xs font-semibold uppercase text-gray-500 mb-1">Room</p>
+            <p id="class-room" class="font-bold text-gray-800">L-201</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-4 mb-6">
+          <div id="remaining-time-box" class="status-box w-full md:w-1/2 bg-blue-100 border border-blue-200">
+            <p class="status-label text-blue-700">Remaining Time:</p>
+            <p id="class-time-status" class="status-text text-gray-800">N/A</p>
+          </div>
+
+          <div id="live-status-box" class="status-box w-full md:w-1/2 bg-green-100 border border-green-200">
+            <p class="status-label text-green-700">Current Status:</p>
+            <p id="class-live-status" class="status-text text-gray-800">ACTIVE (Manual)</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center mb-4">
+          <button id="attendance-button" type="button" class="font-bold py-3 px-6 rounded-xl shadow-lg transition duration-150 transform hover:scale-[1.02] w-full text-white bg-green-500 hover:bg-green-600">
+            MARK ATTENDANCE NOW
+          </button>
+        </div>
+
+        <div class="mt-4 border-t pt-4 border-gray-100">
+          <p class="text-gray-600 text-sm mb-2 font-medium">Select Class Manually:</p>
+          <div class="relative w-full">
+            <select id="select-class-manual" class="select-manual-box text-gray-800">
+              <option value="1">MATH101 - Calculus I</option>
+              <option value="2" selected>CSE210 - Data Structure</option>
+              <option value="3">BBA305 - Marketing Principles</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance Summary Cards -->
+      <div class="w-full max-w-4xl mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="summary-card border-l-4 border-blue-500">
+          <div class="summary-icon-container bg-total-students">
+            <i data-lucide="users" class="icon-total-students w-6 h-6"></i>
+          </div>
+          <p class="summary-label">Total Students</p>
+          <p id="total-students" class="summary-value">30</p>
+        </div>
+
+        <div class="summary-card border-l-4 border-green-500">
+          <div class="summary-icon-container bg-attended">
+            <i data-lucide="user-check" class="icon-attended w-6 h-6"></i>
+          </div>
+          <p class="summary-label">Attended</p>
+          <p id="attended-students" class="summary-value">0</p>
+        </div>
+
+        <div class="summary-card border-l-4 border-red-500">
+          <div class="summary-icon-container bg-absent">
+            <i data-lucide="user-x" class="icon-absent w-6 h-6"></i>
+          </div>
+          <p class="summary-label">Absent</p>
+          <p id="absent-students" class="summary-value">30</p>
+        </div>
+
+        <div class="summary-card border-l-4 border-yellow-500">
+          <div class="summary-icon-container bg-attendance-percent">
+            <i data-lucide="percent" class="icon-attendance-percent w-6 h-6"></i>
+          </div>
+          <p class="summary-label">Attendance %</p>
+          <p id="attendance-percentage" class="summary-value">0.0%</p>
+        </div>
+      </div>
+
+      <!-- Download Report Card -->
+      <div id="download-report-section" class="card-base max-w-4xl mt-8 mb-8" style="border-top: 5px solid #0D9488;">
+        <div class="flex items-center mb-4">
+          <i data-lucide="file-text" style="color: #0D9488;" class="w-6 h-6 mr-2"></i>
+          <h2 class="text-xl font-semibold text-gray-800">Attendance Report Download (PDF)</h2>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 mb-6">
+          <p class="text-sm text-gray-700 font-medium mb-2">This option will generate the following report:</p>
+          <ul class="text-xs text-gray-600 list-disc list-inside space-y-1">
+            <li>Selected Subject Name and Class ID.</li>
+            <li>Class Date and Time Range.</li>
+            <li>List of all student IDs (Present and Absent).</li>
+            <li>Overall Attendance Percentage.</li>
+          </ul>
+          <p class="text-sm text-gray-700 font-medium mt-3">File Format: <span class="font-bold text-teal-600">PDF</span></p>
+        </div>
+
+        <div class="flex justify-center">
+          <button id="download-pdf-button" type="button" class="flex items-center space-x-2 px-8 py-3 bg-teal-600 text-white font-bold rounded-xl shadow-lg hover:bg-teal-700 transition duration-150 transform hover:scale-[1.02]">
+            <i data-lucide="download-cloud" class="w-6 h-6"></i>
+            <span>Download Report (Generate PDF)</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/index.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

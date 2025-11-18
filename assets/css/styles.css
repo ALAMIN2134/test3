@@ -1,0 +1,126 @@
+/* Consolidated styles used by both pages (extracted from your earlier inline CSS) */
+
+:root {
+  --violet-500: #8B5CF6;
+  --violet-dark: #390D7A;
+  --blue-500: #3B82F6;
+  --green-500: #10B981;
+  --red-500: #EF4444;
+  --teal-500: #0D9488;
+}
+
+/* Page base */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+}
+
+/* Card base */
+.card-base {
+  background-color: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  width: 100%;
+}
+
+/* Time card top border variant */
+.time-card-base { border-top: 5px solid #A78BFA; }
+
+/* Inner small cards */
+.inner-card-bg { background-color: #F8F4FF; }
+
+/* Colors */
+.custom-violet { color: var(--violet-500); }
+.custom-dynamic-text { color: var(--violet-dark); }
+
+/* Shadows */
+.card-shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(139,92,246,0.05), 0 2px 4px -2px rgba(139,92,246,0.05);
+}
+
+/* Status/summary */
+.status-box { border-radius: 0.75rem; padding: 1rem; }
+.status-label { font-size: 0.875rem; font-weight: 600; }
+.status-text { font-size: 1.5rem; font-weight: 800; font-style: italic; margin-top: 0.25rem; }
+
+/* Select style */
+.select-manual-box {
+  border: 1px solid #D1D5DB;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+/* Summary cards */
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.summary-icon-container { width:48px; height:48px; border-radius:0.5rem; display:flex; justify-content:center; align-items:center; margin-bottom:0.75rem; }
+.summary-label { font-size:0.875rem; color:#4b5563; margin-bottom:0.25rem; }
+.summary-value { font-size:1.875rem; font-weight:700; color:#1f2937; }
+
+/* Icon bg colors */
+.bg-total-students { background-color:#DBEAFE; }
+.bg-attended { background-color:#D1FAE5; }
+.bg-absent { background-color:#FEE2E2; }
+.bg-attendance-percent { background-color:#FFFBEB; }
+
+/* Icon colors */
+.icon-total-students { color: var(--blue-500); }
+.icon-attended { color: var(--green-500); }
+.icon-absent { color: var(--red-500); }
+.icon-attendance-percent { color: #F59E0B; }
+
+/* Mark attendance / tiles */
+.mark-attendance-card { padding:2rem; border-radius:1.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); background-color:#fff; width:100%; border-top:5px solid var(--blue-500); }
+.attendance-tile {
+  transition: background-color 0.2s, transform 0.1s, color 0.2s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  user-select: none;
+  line-height: 1;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.attendance-tile-pending { background-color: #E0F2FE; color: #1E40AF; }
+.attendance-tile-present { background-color: #10B981; color: #ffffff; box-shadow: 0 4px 6px -1px rgba(16,185,129,0.4); }
+.attendance-tile-pending:hover { background-color: #BFDBFE; transform: scale(1.05); }
+.attendance-tile-present:hover { background-color: #059669; transform: scale(1.05); }
+
+/* Stats bar */
+.stats-bar { background-color: #f8fafc; border-radius: 1rem; padding: 1rem 1.5rem; margin: 1.5rem 0; display:flex; justify-content:space-around; flex-wrap:wrap; gap:1rem; }
+.stat-item { text-align:center; }
+.stat-label { font-size:0.875rem; color:#4b5563; margin-bottom:0.25rem; }
+.stat-value { font-size:1.5rem; font-weight:700; color:#1f2937; }
+.present-value { color: #10B981; }
+.absent-value { color: #EF4444; }
+.percent-value { color: #F59E0B; }
+
+/* Modal styles */
+#success-modal[aria-hidden="false"] { display:flex; }
+
+/* Utility: disabled button look */
+button:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
