@@ -110,6 +110,11 @@ body {
 .attendance-tile-pending:hover { background-color: #BFDBFE; transform: scale(1.05); }
 .attendance-tile-present:hover { background-color: #059669; transform: scale(1.05); }
 
+/* READONLY tile variant for dashboard preview */
+.attendance-tile-readonly { cursor: default; pointer-events: none; }
+.attendance-tile-readonly.attendance-tile-pending:hover,
+.attendance-tile-readonly.attendance-tile-present:hover { transform: none; }
+
 /* Stats bar */
 .stats-bar { background-color: #f8fafc; border-radius: 1rem; padding: 1rem 1.5rem; margin: 1.5rem 0; display:flex; justify-content:space-around; flex-wrap:wrap; gap:1rem; }
 .stat-item { text-align:center; }

@@ -168,6 +168,21 @@
         </div>
       </div>
 
+      <!-- NEW: Mark Attendance Preview (Read-only) -->
+      <div id="mark-attendance-preview" class="card-base max-w-4xl mt-8">
+        <div class="flex items-center mb-4">
+          <i data-lucide="clipboard-list" class="class-title-color w-6 h-6 mr-2"></i>
+          <h2 class="text-lg font-semibold text-gray-800">Mark Attendance (Preview)</h2>
+        </div>
+        <p class="text-sm text-gray-600 mb-4">This is a read-only preview of attendance for the current session. To mark attendance, go to the dedicated page.</p>
+        <div id="home-attendance-grid" class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3 md:gap-4 mb-4" aria-live="polite">
+          <!-- Tiles rendered by assets/js/index.js -->
+        </div>
+        <div class="flex justify-end">
+          <a href="mark-attendance.html" class="px-4 py-2 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700">Open Mark Attendance Page</a>
+        </div>
+      </div>
+
       <!-- Download Report Card -->
       <div id="download-report-section" class="card-base max-w-4xl mt-8 mb-8" style="border-top: 5px solid #0D9488;">
         <div class="flex items-center mb-4">
