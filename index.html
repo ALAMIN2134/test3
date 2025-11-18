@@ -25,10 +25,10 @@
 
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Dashboard</a>
-            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Reports</a>
-            <a href="mark-attendance.html" class="text-white bg-indigo-500/80 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-400 transition duration-200 shadow-md">Mark Attendance</a>
-            <a href="#" class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Student List</a>
+            <a id="nav-dashboard" href="index.html" data-nav class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Dashboard</a>
+            <a id="nav-reports" href="#" data-nav class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Reports</a>
+            <a id="nav-mark-attendance" href="mark-attendance.html" data-nav class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Mark Attendance</a>
+            <a id="nav-students" href="#" data-nav class="text-white hover:bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-200">Student List</a>
           </div>
         </div>
 
@@ -78,7 +78,7 @@
       </div>
 
       <!-- Class Session Card -->
-      <div id="class-session-card" class="card-base class-card-base mt-8">
+      <div id="class-session-card" class="card-base class-card-base card-top-blue mt-8">
         <div class="flex items-center mb-6">
           <i data-lucide="calendar-check" class="class-title-color w-6 h-6 mr-2"></i>
           <h2 class="text-lg font-semibold class-title-color">Current Class Session</h2>
@@ -162,62 +162,5 @@
         <div class="summary-card border-l-4 border-yellow-500">
           <div class="summary-icon-container bg-attendance-percent">
             <i data-lucide="percent" class="icon-attendance-percent w-6 h-6"></i>
-          </div>
-          <p class="summary-label">Attendance %</p>
-          <p id="attendance-percentage" class="summary-value">0.0%</p>
-        </div>
-      </div>
-
-      <!-- NEW: Mark Attendance Preview (Read-only) -->
-      <div id="mark-attendance-preview" class="card-base max-w-4xl mt-8">
-        <div class="flex items-center mb-4">
-          <i data-lucide="clipboard-list" class="class-title-color w-6 h-6 mr-2"></i>
-          <h2 class="text-lg font-semibold text-gray-800">Mark Attendance (Preview)</h2>
-        </div>
-        <p class="text-sm text-gray-600 mb-4">This is a read-only preview of attendance for the current session. To mark attendance, go to the dedicated page.</p>
-        <div id="home-attendance-grid" class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3 md:gap-4 mb-4" aria-live="polite">
-          <!-- Tiles rendered by assets/js/index.js -->
-        </div>
-        <div class="flex justify-end">
-          <a href="mark-attendance.html" class="px-4 py-2 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700">Open Mark Attendance Page</a>
-        </div>
-      </div>
-
-      <!-- Download Report Card -->
-      <div id="download-report-section" class="card-base max-w-4xl mt-8 mb-8" style="border-top: 5px solid #0D9488;">
-        <div class="flex items-center mb-4">
-          <i data-lucide="file-text" style="color: #0D9488;" class="w-6 h-6 mr-2"></i>
-          <h2 class="text-xl font-semibold text-gray-800">Attendance Report Download (PDF)</h2>
-        </div>
-
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 mb-6">
-          <p class="text-sm text-gray-700 font-medium mb-2">This option will generate the following report:</p>
-          <ul class="text-xs text-gray-600 list-disc list-inside space-y-1">
-            <li>Selected Subject Name and Class ID.</li>
-            <li>Class Date and Time Range.</li>
-            <li>List of all student IDs (Present and Absent).</li>
-            <li>Overall Attendance Percentage.</li>
-          </ul>
-          <p class="text-sm text-gray-700 font-medium mt-3">File Format: <span class="font-bold text-teal-600">PDF</span></p>
-        </div>
-
-        <div class="flex justify-center">
-          <button id="download-pdf-button" type="button" class="flex items-center space-x-2 px-8 py-3 bg-teal-600 text-white font-bold rounded-xl shadow-lg hover:bg-teal-700 transition duration-150 transform hover:scale-[1.02]">
-            <i data-lucide="download-cloud" class="w-6 h-6"></i>
-            <span>Download Report (Generate PDF)</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Scripts -->
-  <script src="assets/js/index.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof lucide !== 'undefined') lucide.createIcons();
-    });
-  </script>
-</body>
-</html>
+            
+Due to length limits, remaining content continued in next message.
